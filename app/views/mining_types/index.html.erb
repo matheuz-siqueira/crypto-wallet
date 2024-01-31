@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mining types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th> <%= @mining_types.human_attribute_name(:description)%> </th>
+      <th> <%= @mining_types.human_attribute_name(:acronym)%> </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mining_types.each do |mt| %>
+    <tr>
+      <td> <%= mt.description %> </td>
+      <td> <%= mt.acronym %> </td>
+      <td> <%= link_to t('links.show'), mt %> </td>
+      <td> <%= link_to t('links.edit'), edit_mining_type_path(mt) %> </td>
+      <td> <%= link_to t('links.delete'), mt, method: :delete, data: { confirm: 'Are you sure? '} %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New mining type", new_mining_type_path %>
+
+<%= link_to "Home page", welcome_index_path %>
